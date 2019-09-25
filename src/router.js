@@ -8,11 +8,17 @@ import ColumnEdit from "./views/ColumnEdit";
 import ColumnList from "./views/ColumnList";
 import ArticleEdit from "./views/ArticleEdit";
 import ArticleLIst from "./views/ArticleLIst";
+import Login from "./views/Login";
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path:"/login",
+      name:"login",
+      component: Login
+    },
     {
       path: '/',
       name: 'main',

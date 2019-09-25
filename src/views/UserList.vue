@@ -30,7 +30,7 @@
         },
         methods:{
             async fetch(){
-                let res = await this.$http.get("users");
+                let res = await this.$http.get("rest/users");
                 this.items = res.data;
             },
             async remove(item){
@@ -40,7 +40,7 @@
                     cancelButtonText: '取消删除'
                 })
                 .then(()=>{
-                    let res = this.$http.delete(`users/${item._id}`);
+                    let res = this.$http.delete(`rest/users/${item._id}`);
                     this.$message({
                         type:"success",
                         message:"删除成功!"

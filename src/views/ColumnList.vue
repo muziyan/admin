@@ -25,7 +25,7 @@
         },
         methods:{
             async fetch(){
-                let res = await this.$http.get("columns");
+                let res = await this.$http.get("rest/columns");
                 this.items = res.data;
             },
             async remove(item){
@@ -35,7 +35,7 @@
                     cancelButtonText: '取消删除'
                 })
                 .then(()=>{
-                    let res = this.$http.delete(`columns/${item._id}`);
+                    let res = this.$http.delete(`rest/columns/${item._id}`);
                     this.$message({
                         type:"success",
                         message:"删除成功!"

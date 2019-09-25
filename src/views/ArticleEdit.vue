@@ -50,9 +50,9 @@
             async save(){
                 let res;
                 if(this.id){
-                    res = await this.$http.put(`articles/${this.id}`,this.model);
+                    res = await this.$http.put(`rest/articles/${this.id}`,this.model);
                 }else{
-                    res = await this.$http.post("articles",this.model);
+                    res = await this.$http.post("rest/articles",this.model);
                 }
                 this.$router.push('/article/list');
                 this.$message({
@@ -61,12 +61,11 @@
                 })
             },
             async fetch(){
-                let res = await this.$http.get(`articles/${this.id}`);
-                console.log(res)
+                let res = await this.$http.get(`rest/articles/${this.id}`);
                 this.model =  res.data;
             },
             async fetchParentOptions(){
-                const res = await this.$http.get("columns");
+                const res = await this.$http.get("rest/columns");
                 this.parents = res.data;
             }
         },

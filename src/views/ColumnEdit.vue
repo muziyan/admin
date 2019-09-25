@@ -30,9 +30,9 @@
             async save(){
                 let res;
                 if(this.id){
-                    res = await this.$http.put(`columns/${this.id}`,this.model);
+                    res = await this.$http.put(`rest/columns/${this.id}`,this.model);
                 }else{
-                    res = await this.$http.post("columns",this.model);
+                    res = await this.$http.post("rest/columns",this.model);
                 }
                 this.$router.push('/column/list');
                 this.$message({
@@ -41,7 +41,7 @@
                 })
             },
             async fetch(){
-                let res = await this.$http.get(`columns/${this.id}`);
+                let res = await this.$http.get(`rest/columns/${this.id}`);
                 this.model =  res.data;
             },
             Judge(status){

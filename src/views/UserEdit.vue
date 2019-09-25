@@ -41,9 +41,9 @@
             async save(){
                 let res;
                 if(this.id){
-                    res = await this.$http.put(`users/${this.id}`,this.model);
+                    res = await this.$http.put(`rest/users/${this.id}`,this.model);
                 }else{
-                    res = await this.$http.post("users",this.model);
+                    res = await this.$http.post("rest/users",this.model);
                 }
                 this.$router.push('/user/list');
                 this.$message({
@@ -52,7 +52,7 @@
                 })
             },
             async fetch(){
-                let res = await this.$http.get(`users/${this.id}`);
+                let res = await this.$http.get(`rest/users/${this.id}`);
                 this.model =  res.data;
             },
             Judge(status){
